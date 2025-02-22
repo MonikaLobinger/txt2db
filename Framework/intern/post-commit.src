@@ -1,0 +1,31 @@
+#! /bin/bash
+
+commit_msg=`git log -1 --oneline`
+
+prev_version=`git describe HEAD^`
+prev_version="${prev_version%%-*}"
+prev_version="${prev_version##*v}"
+tag="${commit_msg%%:*}"
+tag="${tag##* }"
+    a="${prev_version%%.*}"
+    i="${prev_version%.*}"
+    i="${i##*.}"
+    f="${prev_version##*.}"
+if [[ ${tag} == "feat!" ]]; then
+    ((a++))
+    ((i=0))
+    ((f=0))
+elif [[ ${tag} == "feat" ]]; then
+    ((i++))
+    ((f=0))
+elif [[ ${tag} == "fix" ]]; then
+    ((f++))
+else
+    exit 0
+fi
+version="${a}.${i}.${f}"
+new_version="v${version}"
+git tag -a "v$version" -m "Version $version"
+echo "${version}" > Version.md
+
+exit 0

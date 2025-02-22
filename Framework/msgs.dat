@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+    MSG[0]="Nachricht für txt2db nicht gefunden"
+    MSG[1]="Es wird genau ein Argument benötigt"
+    MSG[2]="Während Libre Office mit gui läuft funktioniert dieses script nicht,
+    da dieses den Kommandozeilenbefehl von Libre Office starten muss.
+    Libre Office gui muß beendet werden."
+    MSG[3]="Zweites Argument muss falls gesetzt \"drop\" sein"
+    MSG_MAP["arg1_needed"]="1"
+    MSG_MAP["soffice_runs"]="2"
+    MSG_MAP["drop"]="3"

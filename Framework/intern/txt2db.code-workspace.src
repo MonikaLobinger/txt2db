@@ -1,0 +1,42 @@
+{
+	"folders": [
+		{
+			"path": "exampledb"
+		}
+	],
+	"settings": {
+		"editor.indentSize": "tabSize",
+		"editor.rulers": [
+		   {
+			  "column": 120,
+			  "color": "#ff0000"
+			},
+			{
+			  "column": 80,
+			  "color": "#0000b044"
+			},
+		],
+		"better-comments.multilineComments": false,
+		"auto-comment-blocks.hashStyleBlocks": [
+			"shellscript",
+	    ],
+		"files.exclude": {
+			"test/bats/*": true
+		},
+		"cSpell.customDictionaries": {
+			"project-words": {
+				"name": "project-words",
+				"path": "${workspaceRoot}/.vscode/project-words.txt",
+				"description": "Words used in this project",
+				"addWords": true
+			},
+			"custom": true, // Enable the `custom` dictionary
+		},
+		"files.associations": {
+			"*.schema": "sql",
+			"*.bats": "shellscript",
+			"*.tmpl": "html"
+		},
+		"markdown.styles": [".vscode/markdown.css"],
+    },
+}

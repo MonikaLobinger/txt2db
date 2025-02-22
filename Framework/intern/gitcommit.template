@@ -1,0 +1,31 @@
+# feat: Fasse im Imperativ zusammen 50Z kein Punkt
+#
+# Erkläre was und warum, nicht wie, Ende nach 72 Zeichen, das ist hier:#
+#
+#
+#type[(scope)][!]: Kurzbeschreibung
+#                                        # Leerzeile
+#[Body]
+#                                        # Leerzeile
+#[Footer]
+#
+# Bsp: feat: add email notifications on new direct messages
+# Types
+#    feat     Commits, that adds or remove a new feature API relevant change
+#    fix      Commits, that fixes a bug of a preceded feat commit API relevant changes
+#    refactor Commits, that rewrite/restructure your code, not changing API behaviour
+#        perf Commits are special refactor commits, that improve performance
+#    style    Commits, that do not affect the meaning (white-space, formatting, semi-colons,
+#    test     Commits, that add missing tests or correcting existing tests
+#    docs     Commits, that affect documentation only
+#    build    Commits, that affect build components like build tool, dependencies,version,
+#    ops      Commits, that affect operational like  deployment, backup, recovery, infrastr
+#    chore    Miscellaneous commits e.g. modifying .gitignore
+#
+#Breaking Changes Indicator ! before the : in the subject
+#e.g. feat(api)!: remove status endpoint
+#
+#Footer
+#The footer should contain any information about Breaking Changes and is also
+#the place to reference Issues that this commit refers to.
+

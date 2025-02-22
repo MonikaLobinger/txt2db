@@ -21,3 +21,5 @@ picsrc*
 reward*
 road*
 tech*
+test/bats
+test/test_helper/*/*

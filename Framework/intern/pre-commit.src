@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=$(git hash-object -t tree /dev/null)
+fi
+
+for file in $(git diff-index --cached --name-only $against | \
+    grep -e \.bashrc -e \.zshrc -e \.bash_profile -e \\.sh$); do
+
+    if grep 'TODO' ${file} ; then
+        echo "${file}" ' contains TODO comments. Resolve them before committing.'
+        exit 1
+    fi
+    if grep 'todo' ${file} ; then
+        echo "${file}" ' contains todo comments.'
+    fi
+
+    base=${file%.sh}
+    base=${base##*/}
+    #path=${file%/*}
+    subpath="${file%/*}"
+    res="${file//[^\/]}" # Alle /
+    i=${#res}            # Anzahl von /
+    if ((i==0)) ;then
+        #path="."
+        subpath=""
+    fi
+
+    if ! [ -f "$file" ]; then
+        echo "FILE $file ist nicht da"
+        exit 0
+    fi
+
+    echo "pre-commit \"$file\""
+    echo "BASE:    $base"
+    #echo "PATH:    $path"
+    echo "SUBPATH: $subpath"
+    echo ">> shellcheck -x -o all $file"
+    if ! shellcheck -x -o all "$file" ; then
+        echo "!!!ERROR in shellcheck für $file"
+        exit 1
+    fi
+
+    echo ">> test/bats/bin/bats test/$subpath/$base.bats"
+    if ! test/bats/bin/bats "test/$subpath/$base.bats" ; then
+        echo "!!!ERROR in bats test für $file"
+        exit 1
+    fi
+    echo ""
+done
+exit 0
+
