@@ -25,11 +25,11 @@ db_password;PWD;
 # =============================
 www;myexample; # Pfadwurzel z.B. http://127.0.0.1/txt2db/
                 # Der Name mit dem ./www in Server www verlinkt ist
-project;exampledb; # verwendet für extra css und js (nicht ausgeliefert)
+project;txt2db; # verwendet für extra css und js (nicht ausgeliefert)
                 # ./css/%%project%%.css" und ./scripts/%%project%%.js"
 author_attr;anton;
-keywords_attr;Exampledb; # Erstes Keyword/Erste Keywords für alle Seiten
-title_attr;Exampledb; # head title index.html; Anfang head title alle Seiten
+keywords_attr;Txt2db; # Erstes Keyword/Erste Keywords für alle Seiten
+title_attr;Txt2db; # head title index.html; Anfang head title alle Seiten
 # Copyright Variablen
 cr_name;anton.daheim.netz; # © Name
 cr_kontakt;Kontakt; # Linkbeschriftung
@@ -43,13 +43,13 @@ fo_version;Version;
 # ========================================
 desc;Datenbankabfragen für die Datenbank; # Kommt noch an die head description
 keywords;Datenbankabfragen; # Kommt noch an die head keywords dran
-header;EXAMPLEDB;
+header;TXT2DB;
 schema_php;Überblickseite; # Inhalt der Überblicks php Datei
                            # Die die den Namen des Schema hat
 #
 # Variablen für index.html
 # ========================
-in_desc_attr;Hauptseite für das Projekt Exampledb. Verlinkt zu allen Seiten. Liefert allgemeine Erklärungen.;
+in_desc_attr;Hauptseite für das Projekt Txt2db. Verlinkt zu allen Seiten. Liefert allgemeine Erklärungen.;
 # Variablen für contact.html
 # ========================
 co_keywords_attr;Kontakt;  # Ohne keywords, die stehen davor
