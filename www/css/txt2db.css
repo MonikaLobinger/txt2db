@@ -1,0 +1,149 @@
+@layer base_elements, named_elements, flex3_layout, test;
+@import "vars.css";
+
+@layer base_elements {
+* { position:                           relative;
+    padding:0;
+}
+html { box-sizing:                      border-box; }
+*, *:before, *:after { box-sizing:      inherit; }
+body {
+    background-color:                     var(--bg-color);
+    color:                                var(--fg-color);
+    width:                                var(--overall-width);
+    font-weight:                          var(--font-weight);
+    font-size:                            var(--font-size);
+    line-height:                          var(--line-height);
+    font-family:                          var(--font-family-sans);
+    overflow-x:                           var(--overflow);
+}
+header, main, footer, aside {
+    padding: 0 1em; /* top/bottom right/left */
+}
+
+a { text-decoration: none; padding-right: 1.1em; /* needed for links_with_bg */}
+a:link { color: var(--link-color); }
+a:visited { color: var(--link-visited-color); }
+a:hover { color: var(--link-hover-color); }
+a:active { color: var(--link-active-color);  }
+
+@layer links_with_bg {
+a {
+    background: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20fill%3D%22grey%22%20points%3D%222%2C5%203%2C5%203%2C3%209%2C3%209%2C9%207%2C9%207%2C10%2010%2C10%2010%2C2%202%2C2%22%2F%3E%3Cpolygon%20%20fill%3D%22grey%22%20points%3D%220.5%2C10.5%203.5%2C7.5%202%2C6%205.5%2C6%205.5%2C10%204.5%2C8.5%201.5%2C11.5%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    background-position: right bottom;
+	/* <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polygon fill="grey" points="2,5 3,5 3,3 9,3 9,9 7,9 7,10 10,10 10,2 2,2"/><polygon  fill="grey" points="0.5,10.5 3.5,7.5 2,6 5.5,6 5.5,10 4.5,8.5 1.5,11.5"/></svg> */
+}
+a:hover,
+a:focus {
+	background: #fffbf0 url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpolygon%20fill%3D%22purple%22%20points%3D%222%2C5%203%2C5%203%2C3%209%2C3%209%2C9%207%2C9%207%2C10%2010%2C10%2010%2C2%202%2C2%22/%3E%3Cpolygon%20points%3D%220.5%2C10.5%203.5%2C7.5%202%2C6%205.5%2C6%205.5%2C10%204.5%2C8.5%201.5%2C11.5%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    background-position: right bottom;
+}
+a[href^="http"] {
+    background: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20fill%3D%22grey%22%20points%3D%222%2C2%205%2C2%205%2C3%203%2C3%203%2C9%209%2C9%209%2C7%2010%2C7%2010%2C10%202%2C10%22%2F%3E%3Cpolygon%20fill%3D%22grey%22%20points%3D%226.2%2C2%2010%2C2%2010%2C5.79%208.58%2C4.37%206.5%2C6.5%205.5%2C5.5%207.6%2C3.4%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    background-position: right bottom;
+	/* <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><polygon fill="grey" points="2,2 5,2 5,3 3,3 3,9 9,9 9,7 10,7 10,10 2,10"/><polygon fill="grey" points="6.2,2 10,2 10,5.79 8.58,4.37 6.5,6.5 5.5,5.5 7.6,3.4"/></svg> */
+}
+a[href^="http"]:hover,
+a[href^="http"]:focus {
+	background: #fffbf0 url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpolygon%20fill%3D%22purple%22%20points%3D%222%2C2%205%2C2%205%2C3%203%2C3%203%2C9%209%2C9%209%2C7%2010%2C7%2010%2C10%202%2C10%22/%3E%3Cpolygon%20points%3D%226.2%2C2%2010%2C2%2010%2C5.8%208.6%2C4.4%206.5%2C6.5%205.5%2C5.5%207.6%2C3.4%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    background-position: right bottom;
+}
+a[href^="mailto"] {
+	background: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22blue%22%20d%3D%22M1%2C4%20h10%20v6%20h-10z%20l10%2C6m0%2C-6%20l-10%2C6%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    background-position: right bottom;
+	/* <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="blue" d="M1,4 h10 v6 h-10z l10,6m0,-6 l-10,6"/></svg> */
+}
+a[href^="mailto"]:hover,
+a[href^="mailto"]:focus {
+	background: #fffbf0 url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22purple%22%20d%3D%22M1%2C4%20h10%20v6%20h-10z%20l10%2C6m0%2C-6%20l-10%2C6%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    background-position: right bottom;
+}
+
+}
+
+ul ul{
+    margin-left: 1em;
+}
+
+button {
+    cursor:                               pointer;
+    background-color:                     var(--button-bg-color);
+    color:                                var(--button-fg-color);
+    border:                               1px solid var(--button-border-color);
+}
+
+table {
+    table-layout:                         auto;
+    border-collapse:                      collapse;
+    margin:1em;
+}
+table, th, td { border: thin solid; border-color: lightgray;}
+td {padding: 0 0.1em;}
+caption { text-align: left; }
+
+} /* elements */
+
+@layer named_elements {
+  @layer nav {
+    #aside-1 nav {
+        position: sticky;
+        top: 0;
+          }
+  }
+  @layer breadcrumbs {
+    ul.breadcrumb li+li:before {
+        padding: 0.5em;
+        content: var(--black-triangle-right);
+    }
+    ul.breadcrumb li { display: inline; } /* One ofter another in a line */
+  }
+}
+
+@layer flex3_layout {
+  body {
+	--overall-width:    98%;
+    width:              var(--overall-width);
+    margin:             0 auto; /* top/bottom right/left */
+    display:            flex;
+    flex-wrap:          wrap;
+  }
+  body > * {
+    flex-basis: 100%;
+  }
+
+  @media all and (min-width: 600px) {
+    aside { flex: 1 0; } /* flex-grow flex-shrink flex-basis */
+  }
+
+  @media all and (min-width: 800px) {
+    main    { flex: 3; order: 2; }
+    #aside-1 { order: 1; }
+    #aside-2 { order: 3; }
+    footer  { order: 4; }
+  }
+
+}
+
+@layer test {
+    header { background-color: rgba(255, 255, 0, 0.162); }
+    main { background-color: rgba(162, 192, 161, 0.255); }
+    #aside-1 { background-color: rgba(180, 226, 66, 0.3); }
+    #aside-2 { background-color: rgba(140, 186, 106, 0.3); }
+    footer { background-color: rgba(165, 42, 42, 0.156); }
+
+    ul.breadcrumb { background-color: #dee; }
+
+} /* test */
+

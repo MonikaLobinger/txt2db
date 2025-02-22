@@ -1,0 +1,67 @@
+
+# Alle Zeilen bestehen aus einem Kenner und einem Wert oder aus einem
+# Kenner und mehreren Werten. Der Trenner zwischen den Einträgen einer
+# Zeile ist der Strichpunkt. Der Kenner wird vom Zeilenanfang bis zum
+# ersten Strichpunkt gelesen. Der letzte Eintrag einer Zeile wird durch
+# einen Strichpunkt oder durch das Zeilenende begrenzt
+#
+# Kommentarzeilen beginnen mit einem Doppelkreuz.
+#
+# Ist ein Kenner mehrfach vorhanden, wird nur die Zeile des ersten
+# Vorkommens berücksichtigt
+#
+# Variablen für Makefile
+# ======================
+#MD_READ;gnome-text-editor; # Default: ghostwriter
+#
+# Variablen für Datenbank
+# =======================
+db_server;localhost;
+db_db;example;
+db_user;USER;
+db_password;PWD;
+#
+# Variablen für alle www Seiten
+# =============================
+www;myexample; # Pfadwurzel z.B. http://127.0.0.1/txt2db/
+                # Der Name mit dem ./www in Server www verlinkt ist
+project;exampledb; # verwendet für extra css und js (nicht ausgeliefert)
+                # ./css/%%project%%.css" und ./scripts/%%project%%.js"
+author_attr;anton;
+keywords_attr;Exampledb; # Erstes Keyword/Erste Keywords für alle Seiten
+title_attr;Exampledb; # head title index.html; Anfang head title alle Seiten
+# Copyright Variablen
+cr_name;anton.daheim.netz; # © Name
+cr_kontakt;Kontakt; # Linkbeschriftung
+cr_impressum;Impressum; # Linkbeschriftung
+cr_sitemap;Sitemap; # Linkbeschriftung
+#
+# Andere Footer Variablen
+fo_version;Version;
+#
+# Variablen für schema.php und tabelle.php
+# ========================================
+desc;Datenbankabfragen für die Datenbank; # Kommt noch an die head description
+keywords;Datenbankabfragen; # Kommt noch an die head keywords dran
+header;EXAMPLEDB;
+schema_php;Überblickseite; # Inhalt der Überblicks php Datei
+                           # Die die den Namen des Schema hat
+#
+# Variablen für index.html
+# ========================
+in_desc_attr;Hauptseite für das Projekt Exampledb. Verlinkt zu allen Seiten. Liefert allgemeine Erklärungen.;
+# Variablen für contact.html
+# ========================
+co_keywords_attr;Kontakt;  # Ohne keywords, die stehen davor
+co_title_attr;Kontakt;
+co_desc_attr;Wie man mit den Entwicklern von Framework Kontakt aufnehmen kann;
+# Variablen für impress.html
+# ========================
+im_keywords_attr;Impressum;  # Ohne keywords, die stehen davor
+im_title_attr;Impressum;
+im_desc_attr;Rechtlich vorgeschriebenes Impressum;
+# Variablen für sitemap.html
+# ========================
+sm_keywords_attr;Sitemap;  # Ohne keywords, die stehen davor
+sm_title_attr;Sitemap;
+sm_desc_attr;automatisch erstellte Sitemap;

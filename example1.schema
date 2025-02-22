@@ -1,0 +1,44 @@
+### --- 1 Kommentare
+#
+
+### --- 2 Abfragen
+SELECT id, name FROM   example1;
+
+### --- Drei Level
+1
+
+### --- 4 Schema Definition
+  CREATE TABLE example1(
+                id           INT UNSIGNED   NOT NULL AUTO_INCREMENT  COMMENT ""
+              , name         VARCHAR(200)   NOT NULL                 COMMENT ""
+              , PRIMARY KEY (id)
+              , UNIQUE (name)
+              );
+
+### --- 5 Remove Table(s)
+  DROP TABLE IF EXISTS example1;
+
+### --- 6 Remove Lower Level Data
+  # Will be executed before Remove tables.
+  # Not necessary, just to avoid warnings in special cases.
+  # All own Tables will be deleted with drop above.
+  # Sometimes a Schema fills some data in lower level databases. If this
+  # Schema is deleted, the lower level tables are not dropped.
+  # If this Schema than is created again all data are read in again, even those
+  # to the lower level database. Warnings occur, because those data already
+  # exist. In this section one can delete those data.
+  # In the following example example is table of this Schema and picture at
+  # lower level.
+  #
+  # DELETE FROM `example`, `picture` USING `example`,`picture`
+  # WHERE `example`.`picture_id` = `picture`.`id`;
+
+
+### --- 7 Read Data in
+  LOAD DATA LOCAL INFILE "db/example1_main.csv" \
+                                   INTO TABLE example1 FIELDS TERMINATED BY ";";
+  SHOW WARNINGS;
+
+### --- 8 CSV Control dummy example1
+skip
+1/1/2/2

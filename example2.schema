@@ -1,0 +1,57 @@
+### --- Kommentare
+#
+
+### --- Abfragen
+SELECT id, name FROM   test;
+SELECT id, name FROM   example2;
+
+### --- Level
+2
+
+### --- Schema Definition
+  CREATE TABLE test(
+                id           INT UNSIGNED   NOT NULL AUTO_INCREMENT  COMMENT ""
+              , name         VARCHAR(200)   NOT NULL                 COMMENT ""
+              , PRIMARY KEY (id)
+              , UNIQUE (name)
+              );
+  CREATE TABLE example2(
+                id           INT UNSIGNED   NOT NULL AUTO_INCREMENT  COMMENT ""
+              , name         VARCHAR(200)   NOT NULL                 COMMENT ""
+              , test_id      INT UNSIGNED   NOT NULL                 COMMENT ""
+              , example1_id  INT UNSIGNED   NOT NULL                 COMMENT ""
+              , PRIMARY KEY (id)
+              , FOREIGN KEY (test_id) REFERENCES test(id)
+              , FOREIGN KEY (example1_id) REFERENCES example1(id)
+              , UNIQUE (name)
+              );
+
+### --- Remove Table(s)
+  DROP TABLE IF EXISTS example2;
+  DROP TABLE IF EXISTS test;
+
+### --- Remove Lower Level Data
+  # Will be executed before Remove tables.
+  # Not necessary, just to avoid warnings in special cases.
+  # All own Tables will be deleted with drop above.
+  # Sometimes a Schema fills some data in lower level databases. If this
+  # Schema is deleted, the lower level tables are not dropped.
+  # If this Schema than is created again all data are read in again, even those
+  # to the lower level database. Warnings occur, because those data already
+  # exist. In this section one can delete those data.
+  # In the example example is table of this Schema and picture at lower level.
+  #
+  # DELETE FROM `example`, `picture` USING `example`,`picture`
+  # WHERE `example`.`picture_id` = `picture`.`id`;
+
+
+### --- Read Data in
+  LOAD DATA LOCAL INFILE "db/example2_test.csv" \
+                                      INTO TABLE test FIELDS TERMINATED BY ";";
+  LOAD DATA LOCAL INFILE "db/example2_main.csv" \
+                                  INTO TABLE example2 FIELDS TERMINATED BY ";";
+  SHOW WARNINGS;
+
+### --- CSV Control test example2
+run
+1/1/2/2/3/1/4/1

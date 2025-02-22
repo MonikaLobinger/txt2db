@@ -1,0 +1,59 @@
+body {
+    background-color:   rgba(211, 197, 197, 0);
+    width:              95%;
+    margin:             auto auto; /* top/bottom right/left */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.15em;
+}
+* {
+padding-bottom: 0;
+padding-top: 0;
+xmargin-bottom: 0;
+xmargin-top: 0;
+line-height: 1.15em;
+border-color: black;
+border-width: 1px;
+xborder-style:dashed;
+}
+
+h1, h2, h3,h4 {
+    color: cornflowerblue;
+    xbackground-color: blueviolet;
+}
+
+ul {
+    xbackground-color: green;
+    margin-left: 0.3em;
+}
+
+table {
+    background-color: lightsalmon;
+    table-layout:                         auto;
+    border-collapse:                      collapse;
+    margin:1em;
+}
+table, th, td { border: thin solid; border-color: lightgray;}
+td {padding: 0 0.1em;}
+caption { text-align: left; }
+
+
+a { text-decoration: none; padding-right: 1.1em; /* needed for links_with_bg */}
+a:link { color: cornflowerblue; }
+a:visited { color:  cornflowerblue; }
+a:hover { color: darkblue; }
+a:active { color:   cornflowerblue;}
+
+a[href^="http"] {
+    background: url("data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpolygon%20fill%3D%22grey%22%20points%3D%222%2C2%205%2C2%205%2C3%203%2C3%203%2C9%209%2C9%209%2C7%2010%2C7%2010%2C10%202%2C10%22%2F%3E%3Cpolygon%20fill%3D%22grey%22%20points%3D%226.2%2C2%2010%2C2%2010%2C5.79%208.58%2C4.37%206.5%2C6.5%205.5%2C5.5%207.6%2C3.4%22%2F%3E%3C%2Fsvg%3E");
+    color: darkblue;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    background-position: right bottom;
+}
+a[href^="http"]:hover,
+a[href^="http"]:focus {
+	background: #fffbf0 url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2012%2012%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpolygon%20fill%3D%22purple%22%20points%3D%222%2C2%205%2C2%205%2C3%203%2C3%203%2C9%209%2C9%209%2C7%2010%2C7%2010%2C10%202%2C10%22/%3E%3Cpolygon%20points%3D%226.2%2C2%2010%2C2%2010%2C5.8%208.6%2C4.4%206.5%2C6.5%205.5%2C5.5%207.6%2C3.4%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    background-position: right bottom;
+}

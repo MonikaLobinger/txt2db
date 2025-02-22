@@ -1,0 +1,52 @@
+:root {
+	/*-Symbols-----------------------------------------------------*/
+	--big-black-triangle-right:  "\25b6";
+	--big-black-triangle-down:   "\25bc";
+	--big-black-triangle-left:   "\25c0";
+	--big-black-triangle-up:     "\25b2";
+	--big-white-triangle-right:  "\25b6";
+	--big-white-triangle-down:   "\25bc";
+	--big-white-triangle-left:   "\25c1";
+	--big-white-triangle-up:     "\25b3";
+	--black-triangle-right:      "\25b8";
+	--black-triangle-down:       "\25be";
+	--black-triangle-left:       "\25c2";
+	--black-triangle-up:         "\25b4";
+	--white-triangle-right:      "\25b9";
+	--white-triangle-down:       "\25bf";
+	--white-triangle-left:       "\25c3";
+	--white-triangle-up:         "\25b5";
+	--plus:                      "+";
+	--minus:                     "-";
+	--plusplus:                  "++";
+	--minusminus:                "--";
+	/*-Colors------------------------------------------------------*/
+	--color-nearly-white:        #fdfdff;
+	--color-white:               #fff;
+	--color-black:               #000;
+	--color-middle-grey:         #777;
+	--color-dark-grey:           #444;
+	--color-dark-green:          #060;
+	--color-blue:                #00f;
+	--color-red:                 red;
+  /*-Skin----------------------------------------------------------*/
+	--bg-color:                  var(--color-nearly-white);
+	--fg-color:                  var(--color-black);
+	--link-color:                var(--color-dark-green);
+	--link-visited-color:        var(--color-middle-grey);
+	--link-hover-color:          var(--color-red);
+	--link-active-color:         var(--color-blue);
+	--button-bg-color:           var(--color-dark-green);
+	--button-fg-color:           var(--color-white);
+	--button-border-color:       var(--color-middle-grey);
+  /*-Space and Behavior---------------------------------------------*/
+	--overall-width:             100%;
+	--overflow:                  scroll;
+  /*-Fonts and Lines------------------------------------------------*/
+    --font-family-sans:          "Noto Sans", Verdana, Helvetica;
+	--font-family-mono:          "Noto Mono", "Courier New";
+	--font-family-serif:         "Noto Serif", "Times New Roman";
+    --font-family-cursive:       "Lucida Handwriting", Z003;
+    --font-family-gothic:        eufm10;
+    --font-family-greek:         "Standard Symbols PS";
+}
