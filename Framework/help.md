@@ -419,7 +419,7 @@ Seine Ziele erfüllt **make** durch Ausführen der Scripte in `./Framework`. Die
 
 In den Template Dateien für die Anzeige stehen Platzhalter. Diese haben entweder die Form %%name%% oder (%name%).
 
-Die Platzhalter mit je zwei Prozentzeichen vorne und hinten entsprechen Einträgen in der Datei [`./Vars'](../Vars). Es können auch eigene Werte hinzugefügt werden. Jeder Platzhalter, der in einem Template steht und in  [`./Vars'](../Vars) zu finden ist, wird bei der Konvertierung ersetzt.
+Die Platzhalter mit je zwei Prozentzeichen vorne und hinten entsprechen Einträgen in der Datei [`./Vars'](../Vars). Es können auch eigene Werte hinzugefügt werden. Jeder Platzhalter, der in einem Template steht und in  [`./Vars`](../Vars) zu finden ist, wird bei der Konvertierung ersetzt.
 
 Die Platzhalter mit runden Klammern und Prozentzeichen sind funktionale Platzhalter. Deren Name **name** entspricht einer Funktion **create_name** in der Datei [./Framework/tmpl_fus.sh](./tmpl_fus.sh). Dort können auch eigene Funktionen hinzugefügt werden. Jeder funktionale Platzhalter, der in einem Template steht und zu dem eine Funktion **create_name** gefunden wird, wird durch die Ausgabe dieser Funktion ersetzt. Siehe [tmpl_fus](#anton_tmpl_fus_sh)
 
@@ -483,7 +483,7 @@ Erzeugt aus den Dateien [`./Framework/index.tmpl`](index.tmpl), [`./Framework/ve
 
 Es findet eine [Platzhalter](#anton_Placeholder) Konvertierung sowohl von statischen Platzhaltern als auch von funktionalen Platzhaltern statt.
 
-Für jedes Schema wird eine Überblicksseite erzeugt. In dieser ist im Moment der **Article** leer. Für jede Tabelle wird eine Seite erzeugt, in derem **Article** werden alle  SELECT Abfragen aus[`db/SCHEMA_select.sql`](#anton_SELECT_FROM) mit php ausgeführt. Das bewirkt  der funktionale Platzhalter **(%article%)**, über den die Funktion **create_article** aufgerufen wird.
+Für jedes Schema wird eine Überblicksseite erzeugt. In dieser ist im Moment der **article** leer. Für jede Tabelle wird eine Seite erzeugt, in derem **Article** werden alle  SELECT Abfragen aus[`db/SCHEMA_select.sql`](#anton_SELECT_FROM) mit php ausgeführt. Das bewirkt  der funktionale Platzhalter **(%article%)**, über den die Funktion **create_article** aufgerufen wird.
 
 In der linken Seitenleiste werden über den prozeduralen Platzhalter **(%link_tree%)** alle erzeugten Seiten verlinkt.
 
@@ -504,7 +504,7 @@ Vorhandene Funktionen sind:
 - create_link_tree IND SCHEMAS                  : ul/li geschachtelte Links
 - create_title_attr x x SCHEMA TABLE            : String
 - create_desc_attr x x x TABLE x                : String
-- create_gimmecks: x x SCHEMA TABLE             : <p> und Link to help
+- create_gimmecks: x x SCHEMA TABLE             : p und Link to help
 - create_breadcrumbs IND x SCHEMA TABLE         : li links
 - create_article IND x SCHEMA TABLE SELECT_FILE : tables mit SELECT Ergebnissen
 
@@ -656,7 +656,7 @@ Die Dateien werden im Verzeichnis `./www` erzeugt. Ist dieses in die Dokument Ro
 
 ### 5.4.2. web
 
-Es werden fünf statische Html Dateien mit vorgegebenem Inhalt erzeugt: `./www.index.html`, version.html`, `./www/contact.html`, `./www/imprint.html` und `./www/sitemap.html`. Die entsprechenden Quelldateien sind [`./Framework/index.tmpl`](index.tmpl), [`./Framework/version.tmpl`](version.tmpl), [`./Framework/contact.tmpl`](contact.tmpl), [`./Framework/imprint.tmpl`](imprint.tmpl) und [`./Framework/sitemap.tmpl`](sitemap.tmpl).
+Es werden fünf statische Html Dateien mit vorgegebenem Inhalt erzeugt: `./www.index.html`, `./www/version.html`, `./www/contact.html`, `./www/imprint.html` und `./www/sitemap.html`. Die entsprechenden Quelldateien sind [`./Framework/index.tmpl`](index.tmpl), [`./Framework/version.tmpl`](version.tmpl), [`./Framework/contact.tmpl`](contact.tmpl), [`./Framework/imprint.tmpl`](imprint.tmpl) und [`./Framework/sitemap.tmpl`](sitemap.tmpl).
 
 ### 5.4.3. php
 Aus dem Template [`./Framework/vars.tmpl`](vars.tmpl) wird die Datei `./www/vars.php` erzeugt. Diese wird von allen anderen erzeugten Php Dateien inkludiert.
