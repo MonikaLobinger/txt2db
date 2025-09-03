@@ -31,6 +31,8 @@ SHELL=/bin/bash
 # Pseudoziele Erstellen
 # alles erstellen
 all:  $(SCH) $(CSV) $(DB) $(WEB) $(PHP)
+verbose:  opts = -v
+verbose:  all
 # einzeln erstellen
 sch:  $(SCH)
 csv:  $(CSV)
@@ -190,23 +192,23 @@ $(TBL_PHP_v):
 
 # Ziele
 db/%_create.sql db/%_drop.sql db/%_loaddata.sql db/%_select.sql db/%.lvl db/%_test.sh db/%.txt : %.schema
-	./Framework/splitschema.sh $(basename $<)
+	./Framework/splitschema.sh ${opts} $(basename $<)
 #
 db/%_main.csv : db/%.txt db/%/*.ods
-	./Framework/csv.sh $(notdir $(basename $<))
+	./Framework/csv.sh ${opts} $(notdir $(basename $<))
 #
 db/%.db : db/%_main.csv
-	./Framework/db.sh $(notdir $(basename $@))
+	./Framework/db.sh ${opts} $(notdir $(basename $@))
 #
 www/%.html : Framework/%.tmpl Vars
-	./Framework/web.sh
+	./Framework/web.sh ${opts}
 #
 www/help.html : Framework/help.md
 	pandoc -s Framework/help.md -o www/help.html 2>/dev/null
 
 www/%.php : Framework/php.tmpl Vars
-	./Framework/php.sh $(notdir $(basename $@))
+	./Framework/php.sh ${opts} $(notdir $(basename $@))
 
 www/vars.php : Framework/vars.tmpl Vars
-	./Framework/php.sh $(notdir $(basename $@))
+	./Framework/php.sh ${opts} $(notdir $(basename $@))
 
