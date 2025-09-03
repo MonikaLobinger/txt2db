@@ -8,7 +8,7 @@ txt2db - ein Projekt der Moncastry Suite
 
 # Werbung
 
-Erzeugt aus dieser **Textdatei**
+Erzeugt mit einem Aufruf von `make` aus folgender **Textdatei**
 
 ```
 ###
@@ -44,6 +44,6 @@ und eine **Webseite**
 ![](./Framework/intern/php1.png)
 
 
-## Es kann natürlich viel komplizierter sein
+## Die Quelllage kann natürlich viel komplizierter sein
 
 ![](./Framework/intern/komplizierter.png)

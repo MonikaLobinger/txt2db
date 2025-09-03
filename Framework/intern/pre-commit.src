@@ -11,12 +11,13 @@ fi
 for file in $(git diff-index --cached --name-only $against | \
     grep -e \.bashrc -e \.zshrc -e \.bash_profile -e \\.sh$); do
 
-    if grep 'TODO' ${file} ; then
-        echo "${file}" ' contains TODO comments. Resolve them before committing.'
+    if grep -e "^ *#.*TODO" "${file}" ; then
+        echo "${file} enthält TODO Kommentare. Mit TODOs wird nicht eingecheckt."
         exit 1
     fi
-    if grep 'todo' ${file} ; then
-        echo "${file}" ' contains todo comments.'
+    if grep -e "^ *#.*todo" "${file}" ; then
+        echo "${file} enthält todo Kommentare."
+        exit 1
     fi
 
     base=${file%.sh}
